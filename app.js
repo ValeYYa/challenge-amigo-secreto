@@ -7,6 +7,7 @@ function agregarAmigos() {
     // Actualizar el array de amigos
     if (nombreAmigo) {
         amigos.push(nombreAmigo);
+        actualizarLista();
     // Validar la entrada
     } else {
         alert ("Por favor, ingrese un nombre");
@@ -19,7 +20,7 @@ function actualizarLista() {
     // Obtener el elemento de la lista
     let lista = document.getElementById('listaAmigos');
     // Limpiar la lista existente
-    lista.innerHTML = "";
+    lista.innerHTML = '';
     // Iterar sobre el arreglo
     for (let i = 0; i < amigos.length; i++) { // i comienza en 0. asegura que el bucle se ejecute mientras i sea menor que la cantidad de elementos del array
         let li = document.createElement('li'); // Crea un elemento <li>
@@ -40,6 +41,10 @@ function sortearAmigos() {
     let amigoSorteado = amigos[indice];
     // Mostrar el resultado
     document.getElementById('resultado').innerHTML = `Amigo sorteado: ${amigoSorteado}`;
+    // Limpiar todo
+    amigos = [];
+    actualizarLista();
+    document.getElementById('amigo').value = '';
 }
 
 
